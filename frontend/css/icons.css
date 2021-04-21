@@ -1,0 +1,33 @@
+.icons {
+	width: 300px;
+	height: 25px;
+	/* background: #F0F; */
+	margin-left: 90px;
+	margin-top: 10px;
+}
+
+.followers {
+	color: #6F6F6F;
+}
+
+.retweets {
+	color: #6F6F6F;
+	margin-left: 18%;
+}
+
+.favorites {
+	color: #6F6F6F;
+	margin-left: 18%;
+}
+
+.count {
+	color: #6F6F6F;
+	font-size: 14px;
+}
+
+.change-page {
+	float: right;
+	color: #6F6F6F;
+	padding: 3px 3px 0 0;
+	cursor: pointer;
+}
