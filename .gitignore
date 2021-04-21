@@ -1,4 +1,6 @@
 #ignore node_modules
-./node_modules/
+node_modules/
 #ignore icons
-./frontend/icons/
+frontend/icons/
+# ignore .env
+.env
