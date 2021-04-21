@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "A filter to search through twitter API",
+  "main": "app.js",
+  "scripts": {
+    "config": "./scripts/config.sh",
+    "start": "node ./app.js"
+  },
+  "keywords": [
+    "twitter",
+    "api",
+    "filter"
+  ],
+  "author": "Fernando Augusto",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.0",
+    "handlebars": "^4.7.7",
+    "oauth": "^0.9.15"
+  }
+}
