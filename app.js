@@ -1,14 +1,14 @@
 const hbs = require('express-handlebars');
 const express = require('express');
+
 // global object
 const app = express();
-
 
 // routes
 app.use(require('./routes'));
 
-// load frontend
-app.use('/search/tweets', express.static('./frontend'));
+// load search/tweets frontend
+app.use('/search/tweets', express.static('./frontend/search/'));
 
 app.listen(8080, () => {
 	console.log('Server started! host::%s', 'http://localhost:8080');
