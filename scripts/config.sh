@@ -7,9 +7,12 @@
 npm install;
 
 # install icons properly
-mv './node_modules/@fortawesome/fontawesome-free/' './frontend/';
+mv './node_modules/@fortawesome/fontawesome-free/' './frontend/dependencies';
 
 # rename folder to icons
-mv './frontend/fontawesome-free/' './frontend/icons/';
+mv './frontend/dependencies/fontawesome-free/' './frontend/dependencies/icons';
+
+# install jquery
+mv './node_modules/jquery' './frontend/dependencies';
 
 echo "Start project by running \`npm start\`";
