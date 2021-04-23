@@ -1,4 +1,4 @@
-const router = require('express').Router();
+const router = require('express').Router()
 
 /**
  * When the client go to `/`
@@ -6,7 +6,7 @@ const router = require('express').Router();
  */
 
 router.get('/', (req, res) => {
-	res.redirect('/search/tweets');
-});
+  res.redirect('/search/tweets')
+})
 
-module.exports = router;
+module.exports = router
