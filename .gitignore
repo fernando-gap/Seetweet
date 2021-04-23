@@ -1,6 +1,8 @@
 #ignore node_modules
 node_modules/
 #ignore icons
-frontend/icons/
+frontend/dependencies/icons/
 # ignore .env
 .env
+# ignore jquery
+frontend/dependencies/jquery/
