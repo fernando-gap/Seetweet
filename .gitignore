@@ -6,3 +6,5 @@ frontend/dependencies/icons/
 .env
 # ignore jquery
 frontend/dependencies/jquery/
+# ignore all files inside ./views/tweets/
+views/tweets/*
