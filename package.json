@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "config": "./scripts/config.sh",
-    "start": "node -r dotenv/config app.js"
+    "start": "node -r dotenv/config app.js",
+    "test": "npx mocha tests/ --recursive"
   },
   "keywords": [
     "twitter",
