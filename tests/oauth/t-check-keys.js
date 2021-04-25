@@ -1,19 +1,19 @@
 const isEmptyKeys = require('../../oauth/check-keys')
 const assert = require('assert')
 
-describe('Test Errors whether there are a invalid key', function () {
-  it('Check Consumer Key', function () {
-    assert.throws(isEmptyKeys, Error)
+describe('Errors test', function () {
+  it('Should return a throw with an Array', function () {
+    assert.throws(isEmptyKeys, Array)
   })
 })
 
-describe('Test if everything goes fine', function () {
-  it('Valid keys', function () {
-    // load env vars
+describe('All keys are valid', function () {
+  before('Load .env vars', function () {
     require('dotenv').config({
       path: '../../.env'
     })
-
+  })
+  it('Should return nothing', function () {
     isEmptyKeys()
   })
 })
