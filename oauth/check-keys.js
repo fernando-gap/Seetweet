@@ -8,14 +8,13 @@ module.exports = function () {
 
   const invalidTokens = []
 
-  for (let each of tokens) {
+  for (const each of tokens) {
     if (typeof process.env[each] === 'undefined') {
       invalidTokens.push(each)
     }
   }
 
   if (invalidTokens.length !== 0) {
-    throw invalidTokens;
+    throw invalidTokens
   }
-  return;
 }
