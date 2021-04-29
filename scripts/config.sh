@@ -4,15 +4,14 @@
 # and be able to work fine!
 
 # install dependencies
-npm install;
+npm install &> /dev/null;
+
+# create icons folders
+mkdir -p './frontend/dependencies/icons';
 
 # install icons properly
-mv './node_modules/@fortawesome/fontawesome-free/' './frontend/dependencies';
-
-# rename folder to icons
-mv './frontend/dependencies/fontawesome-free/' './frontend/dependencies/icons';
+cp -r './node_modules/@fortawesome/fontawesome-free/'* './frontend/dependencies/icons/';
 
 # install jquery
-mv './node_modules/jquery' './frontend/dependencies';
-
-echo "Start project by running \`npm start\`";
+cp -r './node_modules/jquery' './frontend/dependencies';
+printf "\nStart project by running \`npm start\` ";
