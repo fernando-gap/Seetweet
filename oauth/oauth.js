@@ -3,7 +3,7 @@ const isEmptyTokens = require('./check-keys')
 const { promisify } = require('util')
 const TwitterError = require('./twitter-error.js')
 
-async function requestOAuth (URI) {
+async function request (URI) {
   try {
     isEmptyTokens()
   } catch (invalidTokens) {
@@ -29,4 +29,4 @@ async function requestOAuth (URI) {
   return JSON.parse(responseData)
 }
 
-module.exports = requestOAuth
+module.exports = request
