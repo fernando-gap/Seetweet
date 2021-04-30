@@ -1,6 +1,7 @@
 class TwitterError {
   constructor (message) {
     this.message = message
+    this.status = 500
   }
 
   error () {
