@@ -33,8 +33,7 @@ body {
 .bg-tweet {
 	margin: 0 auto;
 	width: 460px;
-	max-height: 180px;
-	/* height: 180px; */
+	max-height: 300px;
 	margin-top: 25px;
 	border: solid 1px #4F4F4F;
 	border-radius: 3px;
@@ -46,7 +45,9 @@ body {
 
 .content-one, .content-two, .content-three {
 	width: 460px;
-	max-height: 180px;
+}
+
+.content-two {
 }
 
 .content-two {
