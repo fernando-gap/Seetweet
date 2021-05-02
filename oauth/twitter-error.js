@@ -1,15 +1,12 @@
 class TwitterError {
-  constructor (message) {
+  constructor (message, status, reason) {
     this.message = message
-    this.status = 500
+    this.status = status
+    this.reason = reason
   }
 
   error () {
-    return new Error(this.message)
-  }
-
-  message () {
-    return this.message
+    return new Error(`${this.status} ${this.message}. Reason: ${reason}`)
   }
 }
 
