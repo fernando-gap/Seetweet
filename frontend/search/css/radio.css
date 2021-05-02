@@ -29,7 +29,7 @@
 }
 
 .container:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #3F3F3F;
 }
 
 .container input:checked ~ .checkmark {
