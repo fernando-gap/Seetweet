@@ -7,7 +7,7 @@ async function request (URI) {
   try {
     isEmptyTokens()
   } catch (invalidTokens) {
-    return new TwitterError(invalidTokens)
+    return new TwitterError('Bad Request', 400, invalidTokens)
   }
 
   const oauth = new OAuth(
