@@ -1,0 +1,71 @@
+{{#each statuses}}
+<div class="bg-tweet">
+  <div class="change-page">
+    <i class="fas fa-arrow-right"></i>
+  </div>
+  <div class="content-one">
+    <div class="screen">
+      <span class="screen-name">{{this.user.name}}</span>
+      <span class="info">{{this.user.screen_name}}</span>
+    </div>
+    <div class="photo">
+      <img src="{{hd this.user.profile_image_url_https}}" alt="profile photo">
+    </div>
+    <div class="text">
+      {{this.text}}
+    </div>
+    <div class="icons">
+      <i class="fas fa-user-friends fa-sm followers"></i>
+      <span class="count">{{this.user.followers_count}}</span>
+      <i class="fas fa-retweet fa-sm retweets"></i>
+      <span class="count">{{this.retweet_count}}</span>
+      <i class="far fa-heart fa-sm favorites"></i>
+      <span class="count">{{this.favorite_count}}</span>
+    </div>
+  </div>
+  <div class="content-two">
+    <table class="data-table">
+      {{#if this.created_at}}
+      <tr>
+        <td>created_at</td>
+        <td>{{this.created_at}}</td>
+      </tr>
+      {{/if}}
+      {{#if this.id_str}}
+      <tr>
+        <td>id_str</td>
+        <td>{{this.id_str}}</td>
+      </tr>
+      {{/if}}
+      {{#if this.metadata.result_type}}
+      <tr>
+        <td>result_type</td>
+        <td>{{this.metadata.result_type}}</td>
+      </tr>
+      {{/if}}
+    </table>
+    </div>
+    <div class="content-three">
+      <table class="data-table">
+        {{#if this.user.id_str}}
+          <tr>
+            <td>id_str (user)</td>
+            <td>{{this.user.id_str}}</td>
+          </tr>
+        {{/if}}
+        {{#if this.user.created_at}}
+          <tr>
+            <td>created_at (user)</td>
+            <td>{{this.user.created_at}}</td>
+          </tr>
+        {{/if}}
+        {{#if this.user.description}}
+          <tr>
+            <td>description</td>
+            <td>{{this.user.description}}</td>
+          </tr>
+        {{/if}}
+    </table>
+  </div>
+</div>
+{{/each}}
