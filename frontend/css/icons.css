@@ -1,5 +1,4 @@
 .icons {
-	width: 300px;
 	height: 25px;
 	margin-left: 90px;
 	margin-top: 10px;
@@ -11,12 +10,12 @@
 
 .retweets {
 	color: #6F6F6F;
-	margin-left: 18%;
+	margin-left: 16%;
 }
 
 .favorites {
 	color: #6F6F6F;
-	margin-left: 18%;
+	margin-left: 17%;
 }
 
 .count {

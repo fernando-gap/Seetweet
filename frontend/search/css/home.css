@@ -1,13 +1,10 @@
 body {
-	margin: 0;
+	/* margin: 0; */
 	font-family: Helvetica;
 	background: #2D2D2D;
 }
 
 .background {
-	margin: 0 auto;
-	width: 600px;
-	height: 850px;
 	display: flex;
 	justify-content: center;
 }
