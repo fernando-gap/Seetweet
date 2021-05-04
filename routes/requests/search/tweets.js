@@ -1,6 +1,9 @@
-const create = require('../../../lib/create')
+const create = require('../../../lib')
+const TwitterError = require('../../../oauth/twitter-error')
 const request = require('../../../oauth/oauth')
+const { basename } = require('path')
 const { v4 } = require('uuid')
+const fsp = require('fs/promises')
 const bp = require('body-parser')
 const hbs = require('express-handlebars')
 const express = require('express')
@@ -9,53 +12,51 @@ const app = express()
 app.use(bp.urlencoded({ 
   extended: true, 
   type: 'application/x-www-form-urlencoded',
-  limit: 200,
+  limit: 300,
   parameterLimit: 5*2
 }))
 
-const dir = process.env.PWD.replace(/routes.$*/, '')
+const dir = process.env.PWD.replace(/routes.*$/, '')
 
-app.engine('hbs', hbs({ extname: 'hbs' }))
+app.engine('hbs', hbs({ 
+  extname: 'hbs',
+  defaultLayout: 'main.hbs',
+  helpers: {
+    hd: function(string) {
+      return string.replace('normal', '400x400')
+    }
+  }
+}))
 app.set('view engine', 'hbs')
 
-app.post('/tweets/result', async (req, res) => {
+app.post('/tweets/result', async (req, res, next) => {
   const url = await create(req.body)
-  const oauth = await request(url)
+  const tweets = await request(url)
+  console.log(JSON.stringify(tweets, null, 2))
+  
+   if (tweets instanceof TwitterError) {
+     next(tweets); return // error in oauth req
+   } 
 
-  if (oauth instanceof TwitterError) {
-    res.render('error/http-error', {
-      layout: false,
-      code: oauth.status,
-      message: oauth.message,
-      description: 'Access tokens are invalid, please, check them out!'
-    })
-  } 
-
-  const tweets = await engine(oauth)
   const uuid = v4()
 
-  await fsp.mkdir(`${dir}/views/tweets/${uuid}`)
-
-  await fsp.writeFile(`${dir}/views/tweets/${uuid}/index.hbs`, tweets, err => {
-    if (err) {
-      res.render('error/http-error', {
-        layout: false,
-        code: 501,
-        description: 'Unable to load request'
-      })
-      res.end()
-    }
-
-    tweetsPage(req, res, uuid)
-  })
+  await fsp.writeFile(`${dir}/views/tweets/${uuid}.json`, JSON.stringify(tweets, null, 2))
+  res.redirect(`/search/tweets/result/${uuid}`)
+  return tweetsPage(res, uuid)
 })
 
-function tweetsPage(req, res, uuid) {
-  res.redirect(`/search/tweets/result/${uuid}`)
-
-  app.get(`/search/tweets/result/${uuid}`, (req, res) => {
-    res.render(`tweets/${uuid}`)
-  }) 
+async function tweetsPage(res, uuid, next) {
+    try {
+      const tweets = await fsp.readFile(`${dir}/views/tweets/${uuid}.json`)
+      res.render(`result/result`, JSON.parse(tweets))
+    } catch (error) {
+      next(new TwitterError('Not Found', 404))
+    }
 }
+
+app.get(/tweets\/result\/*/, async (req, res, next) => {
+  const uuid = basename(req.url)
+  return tweetsPage(res, uuid, next)
+})
 
 module.exports = app
