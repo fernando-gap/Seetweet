@@ -7,13 +7,13 @@ const app = express()
 // routes
 app.use(require(join(__dirname, '/routes')))
 app.use(function(err, req, res, next) {
-  res.status(405)
+  res.status(err.status || 405)
   res.render('error/http', {
     layout: 'main.hbs',
-    code: 405,
-    error: 'Method not allowed'
+    code: err.status || 405,
+    error: err.message || 'Method not allowed'
   })
-  console.log('Method not allowed')
+  console.log(err)
 })
 
 // load search/tweets frontend
