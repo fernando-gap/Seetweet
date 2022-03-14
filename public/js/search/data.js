@@ -33,5 +33,5 @@ $(document).ready(function () {
 
 // When clicked on home return to search filter
 $('div.navbar').click(function () {
-  window.location.replace('/search/tweets')
+  window.location.replace('/search/')
 })
