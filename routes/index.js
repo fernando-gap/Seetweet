@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 // configure routes
-router.use('/', require('./requests/search/filter'))
-router.use('/search', require('./requests/search/tweets'))
+require('./requests/search/filter.js')(router)
+require('./requests/search/tweets')(router)
 
 module.exports = router

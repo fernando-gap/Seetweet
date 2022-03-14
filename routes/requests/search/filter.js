@@ -1,24 +1,21 @@
-const express = require('express')
-const app = express()
+module.exports = function (router) {
+  /**
+   * When the client go to `/`
+   * redirects to the `/search/tweets`
+   */
 
-/**
- * When the client go to `/`
- * redirects to the `/search/tweets`
- */
+  router.get('/', (req, res) => {
+    res.redirect('/search/')
+  })
 
-app.get('/', (req, res) => {
-  res.redirect('/search/tweets')
-})
+  /**
+   * All routes for filters
+   * @variable {String} mainFiles `Path to find files`
+   */
 
-/**
- * All routes for filters
- * @variable {String} mainFiles `Path to find files`
- */
+  const mainFiles = process.env.PWD.replace(/routes.*$/, '')
 
-const mainFiles = process.env.PWD.replace(/routes.*$/, '')
-
-app.get('/search/tweets', (req, res) => {
-  res.sendFile(`${mainFiles}/frontend/search/index.html`)
-})
-
-module.exports = app
+  router.get('/search/tweets', (req, res) => {
+    res.sendFile(`${mainFiles}/frontend/search/index.html`)
+  })
+}
