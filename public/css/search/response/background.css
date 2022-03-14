@@ -1,0 +1,67 @@
+body {
+	margin: 0;
+	font-family: Helvetica;
+	background-color: #2D2D2D;
+}
+
+.home {
+	color: white;
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.navbar {
+	background: #1C1C1C;
+	height: 10vh;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.feed {
+	margin: 0 auto;
+	position: relative;
+}
+
+.bg-tweet {
+	margin: 0 auto;
+	width: 460px;
+	max-height: 300px;
+	margin-top: 25px;
+	border: solid 1px #4F4F4F;
+	border-radius: 3px;
+}
+
+/**
+ * Pages
+ */ 
+
+.content-one, .content-two, .content-three {
+	width: 460px;
+}
+
+.content-two {
+}
+
+.content-two {
+	display: none;
+}
+
+.content-three {
+	display: none;
+}
+
+.data-table {
+	margin-top: 6px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	color: white;
+	font-size: 15px;
+	max-width: 430px;
+}
+
+.data-table td {
+	border: solid 1px #4F4F4F;
+	padding: 2px 2px 2px 2px;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Search Filter</title>
+	<link rel="stylesheet" href="/css/search/radio.css">
+	<link rel="stylesheet" href="/css/search/home.css">
+	<link rel="stylesheet" href="/css/search/buttons.css">
+</head>
+<body>
+	<div class="background">
+  	<div class="filter">
+		<form action="/search/tweets/result" method="POST">
+			<div class="adjust">
+				<span class="filter-title">Search: *</span>
+				<br>
+				<input type="text"
+				autocomplete="off"
+				placeholder="Type something..."
+				maxLength="200"
+				name="q" required>
+			</div>
+			<div class="adjust">
+				<span class="filter-title">Lang:</span>
+				<br>
+				<input type="text"
+				autocomplete="off"
+				maxLength="2"
+				placeholder="ISO 693-1"
+				name="lang">
+			</div>
+			<div class="adjust">
+				<span class="filter-title">count:</span>
+				<br>
+				<input type="range" id="count" min="1" max="100" value="15" name="count">
+				<span class="count-text">value: <span id="slider-value"></span></span>
+			</div>
+			<div class="adjust">
+				<span class="filter-title">Result type:</span>
+				<br>
+				<label class="container">mixed
+				  <input type="radio" name="result_type" value="mixed" checked>
+				  <span class="checkmark"></span>
+				</label>
+				<label class="container">popular
+				  <input type="radio" name="result_type" value="popular">
+				  <span class="checkmark"></span>
+				</label>
+				<label class="container">recent
+				  <input type="radio" name="result_type" value="recent">
+				  <span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="adjust">
+				<span class="filter-title">Until:</span>
+				<br>
+				<input type="date" name="until" min="2006-01-01">
+			</div>
+			<div class="adjust">
+				<span class="filter-title">Since ID:</span>
+				<br>
+				<input type="text" name="since_id" autocomplete="off" placeholder="Search for id greater">
+			</div>
+			<div class="adjust">
+				<span class="filter-title">Max ID:</span>
+				<br>
+				<input type="text" name="max_id" autocomplete="off" placeholder="Search for id less">
+			</div>
+			<div class="adjust">
+				<span class="filter-title">Include entities:</span>
+				<br>
+				<select id="entities" name="include_entities">
+					<option value="false">false</option>
+					<option value="true">true</option>
+				</select>
+			</div>
+			<div class="adjust">
+				<input type="hidden" name="type" value="search">
+				<button type="submit" id="submit-btn">Search Tweets</button>
+			</div>
+		</form>
+  	</div>
+	</div>
+	<script>
+		// show slider value
+		const slider = document.getElementById('count');
+		const output = document.getElementById('slider-value');
+		output.innerHTML = slider.value;
+
+		slider.oninput = function() {
+			output.innerHTML = this.value;
+		}
+	</script>
+</body>
+</html>

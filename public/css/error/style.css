@@ -1,0 +1,52 @@
+div {
+  box-sizing: border-box;
+}
+
+#code {
+  color: red;
+  font-size: 7rem;
+  font-weight: bolder;
+}
+
+
+/** div parent **/
+.code {
+  height: 25vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#error {
+  font-size: 5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+
+/** div parent **/
+.error {
+  height: 10vh;
+  width: 100vw;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#reason {
+  font-size: 2rem;
+  color: white;
+}
+
+/** div parent **/
+.reason {
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
