@@ -33,7 +33,7 @@ app.use(require(join(__dirname, '/routes')))
 app.use('/', express.static(
   join(__dirname, 'public')))
 
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
   console.log('Server started! host: %s', 'http://localhost:8080')
 })
 
