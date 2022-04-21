@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "config": "./scripts/config.sh",
-    "start": "node app.js",
+    "start": "NODE_ENV=production node app.js",
+    "devel": "NODE_ENV=development node app.js",
     "test": "npx mocha tests/ --recursive"
   },
   "keywords": [

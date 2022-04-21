@@ -1,4 +1,8 @@
-require('dotenv').config();
+
+// config keys in development env.
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config();
+}
 
 const hbs = require('express-handlebars')
 const { join } = require('path')
