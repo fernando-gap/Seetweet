@@ -7,6 +7,7 @@
     "config": "./scripts/config.sh",
     "start": "NODE_ENV=production node app.js",
     "devel": "NODE_ENV=development node app.js",
+    "heroku-postbuild": "./scripts/config.sh",
     "test": "npx mocha tests/ --recursive"
   },
   "keywords": [
