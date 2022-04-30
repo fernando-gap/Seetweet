@@ -5,6 +5,9 @@
 A simple tool to view retrivied data from twitter's API in a simple UI. Not only in a json file format, but in a GUI style. Configure your keys, and you are done 🚀.
 
 ## Getting Starting
+
+You can test out the site by accessing: [seetweet](https://seetweet.herokuapp.com)
+
 To quick start you need first clone the repository:
 ```shell
 git clone https://github.com/fernando-gap/Seetweet.git
